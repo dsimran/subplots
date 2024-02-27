@@ -1,0 +1,21 @@
+
+from matplotlib import pyplot as plt
+import networkx as nx
+
+n = 50
+k=10
+p = 0.1
+q=0.1
+G = nx.erdos_renyi_graph(n, p, seed=None, directed=False)
+C= nx.complete_graph(20)
+fig, axs = plt.subplots(ncols= 2, figsize=(10, 4),gridspec_kw={'width_ratios': [4,4]},sharex=True,sharey=True)
+nx.draw_circular(G,node_size=70,ax=axs[0],node_color='blue',edge_color="grey",width=0.5)
+axs[0].set_title("Random graph",y=0.01)
+nx.draw(C,pos=nx.circular_layout(C,scale=0.4),node_size=40,ax=axs[1],node_color='yellow',edge_color="grey",width=0.5)
+axs[1].set_title("Complete Graph , $\mathrm{k_{10}}$",y=0.01)
+plt.figtext(0.5, 0.01, "No.of nodes in random graph=50, with a probability of 0.1", ha='center', fontsize=12)
+plt.tight_layout()
+plt.show()
+
+
+
